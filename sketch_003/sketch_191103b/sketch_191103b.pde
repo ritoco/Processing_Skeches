@@ -8,11 +8,11 @@ void setup() {
   colorMode(HSB, 360, 100, 100, 100);
   smooth();  
   background( 220, 10, 100 );
-  
- 
+
+
   bgMaterial(); // 背景の質感
-  
-  
+
+
   // 着色オブジェクトの量
   colors = new ArrayList<Coloring>();
   for ( int i = 1; i < 15; ++i ) {
@@ -33,18 +33,16 @@ class Coloring {
 
   Coloring() {
     shapeSize = int( random(100, 150) );
-    //shapeHeight = int( random(20, 50) );
     col = color( 360/random(2), 100, 100);
     position = new PVector( random(width), random(height) );
   }
-  
-// draw関数に入れるもの
+  // draw関数に入れるもの
   void run() {
     pattern();
     update();
     output();
   }
-// 着色するオブジェクトの動き方
+  // 着色するオブジェクトの動き方
   void update() {
     float colorShape;
     colorShape = position.x + random(-50, 50);
@@ -56,7 +54,7 @@ class Coloring {
       position.y = colorShape;
     }
   }
-// 着色するオブジェクトの色や形の設定
+  // 着色するオブジェクトの色や形の設定
   void output() {
     fill( col, 2);
     blendMode(ADD);
@@ -66,11 +64,13 @@ class Coloring {
 }
 // ellipseを並べる
 void pattern() {
+
+  int patternSize = 150;
   for ( int tate = 0; tate < 10; tate++ ) { 
     for ( int yoko= 0; yoko < 10; yoko++ ) { 
       noStroke();
       fill(0);
-      ellipse(yoko*150, tate*150, 150, 150);
+      ellipse(yoko*patternSize, tate*patternSize, patternSize, patternSize);
     }
   }
 }
@@ -96,10 +96,10 @@ void keyPressed() {
 
 
 
-/* -----------------------
+/* ---------------------------------------------
  
- 出典
- Processing Tutorial
- http://jkoba.net/prototyping/processing/basic_class_practice.html
+  出典
+   Processing Tutorial
+   http://jkoba.net/prototyping/processing/basic_class_practice.html
  
- -------------------------*/
+ -----------------------------------------------*/
