@@ -27,13 +27,12 @@ void draw() {
 }
 // 着色オブジェクトの設定
 class Coloring {
-  int shapeWidth;
-  int shapeHeight;
+  int shapeSize;
   color col;
   PVector position;
 
   Coloring() {
-    shapeWidth = int( random(100, 150) );
+    shapeSize = int( random(100, 150) );
     //shapeHeight = int( random(20, 50) );
     col = color( 360/random(2), 100, 100);
     position = new PVector( random(width), random(height) );
@@ -62,7 +61,7 @@ class Coloring {
     fill( col, 2);
     blendMode(ADD);
     noStroke();
-    ellipse( position.x, position.y, shapeWidth, shapeWidth  );
+    ellipse( position.x, position.y, shapeSize, shapeSize  );
   }
 }
 // ellipseを並べる
